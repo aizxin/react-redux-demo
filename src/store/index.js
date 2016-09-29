@@ -9,7 +9,7 @@ export default (initialState) => {
     const store = compose(
         applyMiddleware(
             thunk,
-            createLogger()
+            createLogger() //控制台 相关操作打印
         ),
         window.devToolsExtension ? window.devToolsExtension() : f => f
     )(createStore)(rootReducer, initialState);

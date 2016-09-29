@@ -3,20 +3,20 @@ import * as types from '../../constants/ActionTypes';
 import axios from 'axios';
 
 const dataUser = {
-                "users": [{
-                    "id": 1,
-                    "name": "小撸1",
-                    'email': '11@qq.com'
-                }, {
-                    "id": 2,
-                    "name": "小撸2",
-                    'email': '22@qq.com'
-                }, {
-                    "id": 3,
-                    "name": "小撸3",
-                    'email': '33@qq.com'
-                }]
-            };
+    "users": [{
+        "id": 1,
+        "name": "小撸1",
+        'email': '11@qq.com'
+    }, {
+        "id": 2,
+        "name": "小撸2",
+        'email': '22@qq.com'
+    }, {
+        "id": 3,
+        "name": "小撸3",
+        'email': '33@qq.com'
+    }]
+};
 
 function fetchUsers () {
     return dataUser;
