@@ -12,11 +12,6 @@ export default function user (state = initialState, action) {
                 ...state,
                 users: action.data.users,
             };
-        case types.ADD_USER:
-            return {
-                ...state,
-                user: action.user,
-            };
         default:
             return state;
     }

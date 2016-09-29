@@ -2,8 +2,8 @@
 import React, { Component, PropTypes } from 'react';
 
 class UserAdd extends Component {
-    constructor(props, context) {
-        super(props, context)
+    constructor() {
+        super()
         this.state = {
             username: '',
             email:'',

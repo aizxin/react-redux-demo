@@ -39,11 +39,7 @@ export function setUsers(data) {
         data
     };
 }
-export function addUsers(data) {
-    console.log(dataUser);
+export function addUser(data) {
     dataUser.users.push({id:dataUser.users.length+1,name:data.username,email:data.email})
-    return {
-        type: types.ADD_USER,
-        data
-    };
+    dispatch(getUsers());
 }

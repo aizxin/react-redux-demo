@@ -1,21 +1,24 @@
 'use strict';
-import React, {
-	Component,PropTypes
-} from 'react';
-
+import React, {Component,PropTypes} from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import './index.css';
 import UserAdd from '../UserAdd';
 import User from '../User';
+import { getUsers } from '../../actions/user';
 
 class UserList extends Component {
+    componentWillMount() {
+        this.props.getUsers();
+    }
 	render() {
-        const { actions } = this.props
+        const { users } = this.props
 		return (
             <div className="main-container">
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-12" style={{marginTop: 15}}>
-                            <UserAdd addUsers={actions.addUsers}/>
+                            <UserAdd/>
                         </div>
                     </div>
                     <div className="bs-example" data-example-id="simple-table">
@@ -30,7 +33,7 @@ class UserList extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {this.props.users.map((user, index)=> {
+                            {users.map((user, index)=> {
                                return <User user={user} key={user.id}/>
                             })}
                         </tbody>
@@ -41,8 +44,14 @@ class UserList extends Component {
 		);
 	}
 }
-UserList.propTypes = {
-  actions: PropTypes.object.isRequired
-}
-
-export default UserList;
+const mapStateToProps = state => {
+    return {
+        users: state.user.users
+    };
+};
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        getUsers:getUsers
+    },dispatch);
+};
+export default connect(mapStateToProps, mapDispatchToProps)(UserList);
