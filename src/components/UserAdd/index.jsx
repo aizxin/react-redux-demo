@@ -5,17 +5,17 @@ class UserAdd extends Component {
     constructor(props, context) {
         super(props, context)
         this.state = {
-            username: '222',
+            username: '',
             email:'',
             btn:'添加用户'
         }
     }
     handleTextChange(evt){
-		this.setState({'username': evt.target.value});
-	}
+		    this.setState({'username': evt.target.value});
+    }
     handleeEmailChange(evt){
-        this.setState({'email': evt.target.value});        
-	}
+        this.setState({'email': evt.target.value});
+	  }
     handleEmailBlur(evt) {
         let filter  = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
         if (filter.test(evt.target.value)){
@@ -27,7 +27,7 @@ class UserAdd extends Component {
     }
     handleSubmit(event) {
         event.preventDefault();
-        console.log(event.target);
+        this.props.addUsers(this.state)
     }
   render () {
 
@@ -48,5 +48,4 @@ class UserAdd extends Component {
     );
   }
 }
-
 export default UserAdd;

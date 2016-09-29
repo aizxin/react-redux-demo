@@ -19,7 +19,7 @@ const dataUser = {
             };
 
 function fetchUsers () {
-    return dataUser; 
+    return dataUser;
 }
 
 export function getUsers() {
@@ -36,6 +36,14 @@ export function getUsers() {
 export function setUsers(data) {
     return {
         type: types.SET_USER,
+        data
+    };
+}
+export function addUsers(data) {
+    console.log(dataUser);
+    dataUser.users.push({id:dataUser.users.length+1,name:data.username,email:data.email})
+    return {
+        type: types.ADD_USER,
         data
     };
 }

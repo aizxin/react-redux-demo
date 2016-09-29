@@ -1,6 +1,6 @@
 'use strict';
 import React, {
-	Component
+	Component,PropTypes
 } from 'react';
 
 import './index.css';
@@ -9,12 +9,13 @@ import User from '../User';
 
 class UserList extends Component {
 	render() {
+        const { actions } = this.props
 		return (
             <div className="main-container">
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-12" style={{marginTop: 15}}>
-                            <UserAdd history={history}/>
+                            <UserAdd addUsers={actions.addUsers}/>
                         </div>
                     </div>
                     <div className="bs-example" data-example-id="simple-table">
@@ -31,7 +32,7 @@ class UserList extends Component {
                         <tbody>
                             {this.props.users.map((user, index)=> {
                                return <User user={user} key={user.id}/>
-                            })}                            
+                            })}
                         </tbody>
                         </table>
                     </div>
@@ -39,6 +40,9 @@ class UserList extends Component {
             </div>
 		);
 	}
+}
+UserList.propTypes = {
+  actions: PropTypes.object.isRequired
 }
 
 export default UserList;
