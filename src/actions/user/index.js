@@ -39,7 +39,24 @@ export function setUsers(data) {
         data
     };
 }
-export function addUser(data) {
-    dataUser.users.push({id:dataUser.users.length+1,name:data.username,email:data.email})
-    dispatch(getUsers());
+export function addUser(user) {
+  return {
+    type: types.ADD_USER,
+    user
+  };
+}
+export function addUserRequest(user) {
+    const data = {"id":dataUser.users.length+1,"name":user.name,"email":user.email};
+    dataUser.users.push(data)
+    return (dispatch,getState)=>{
+        dispatch(addUser(data))
+        dispatch(setSnackbar('添加^_^'));
+        dispatch(getUsers());
+    }
+}
+export function setSnackbar (message){
+    return {
+        type:types.SET_SNACKBAR,
+        message
+    }
 }

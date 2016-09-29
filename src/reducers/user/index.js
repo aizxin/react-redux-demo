@@ -12,6 +12,14 @@ export default function user (state = initialState, action) {
                 ...state,
                 users: action.data.users,
             };
+        case types.ADD_USER :
+            return Object.assign({},state,{
+                users: [
+                    action.user,
+                    ...state.users
+                ],
+                postForm: Object.assign({}, initialState.user) // clear form
+            });
         default:
             return state;
     }
