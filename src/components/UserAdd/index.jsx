@@ -12,11 +12,11 @@ class UserAdd extends Component {
         }
     }
     handleTextChange(evt){
-		this.setState({'name': evt.target.value});
+		    this.setState({'name': evt.target.value});
     }
     handleeEmailChange(evt){
         this.setState({'email': evt.target.value});
-	}
+    }
     handleEmailBlur(evt) {
         let filter  = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
         if (filter.test(evt.target.value)){

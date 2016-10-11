@@ -7,7 +7,7 @@ import routes from './routes';
 import { Provider } from 'react-redux';
 import createStore from './store'
 let store = createStore();
-
+import 'antd/dist/antd.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 let root = document.getElementById('app');
